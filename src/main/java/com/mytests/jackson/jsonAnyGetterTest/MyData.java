@@ -1,7 +1,6 @@
-package com.mytests.jackson.jsonGetAnySetterTest;
+package com.mytests.jackson.jsonAnyGetterTest;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,12 +10,11 @@ public class MyData {
    public MyData(){
       data = new HashMap<>();
    }
-
+   @JsonAnyGetter
    public Map<String, String> getData(){
       return data;
    }
-   @JsonAnySetter
-   public void addProps(String property, String value){
+   public void add(String property, String value){
       data.put(property, value);
    }
 }

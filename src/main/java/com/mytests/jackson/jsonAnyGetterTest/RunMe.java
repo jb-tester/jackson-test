@@ -1,4 +1,4 @@
-package com.mytests.jackson.jsonGetAnyGetterTest;
+package com.mytests.jackson.jsonAnyGetterTest;
 import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
