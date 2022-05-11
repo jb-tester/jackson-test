@@ -1,7 +1,8 @@
-package com.mytests.jackson.jsonGetterTest;
+package com.mytests.jackson.jsonValueTest;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * *
@@ -9,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * <p>Project: jackson-test</p>
  * *
  */
-@JsonPropertyOrder({"p1","p2","p3"})
+
 public class MyData {
 
     String prop1;
@@ -21,16 +22,10 @@ public class MyData {
         this.prop2 = prop2;
         this.prop3 = prop3;
     }
-    @JsonGetter("p1")
-    public String getDataProp1() {
-        return prop1;
-    }
-    @JsonGetter("p2")
-    public String getDataProp2() {
-        return prop2;
-    }
-    @JsonGetter("p3")
-    public String getDataProp3() {
-        return prop3;
+
+
+    @JsonValue
+    public String getRez(){
+        return "{ properties: "+prop1+", "+prop2+", "+prop3+"}";
     }
 }

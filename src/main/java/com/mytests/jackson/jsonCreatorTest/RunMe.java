@@ -1,4 +1,4 @@
-package com.mytests.jackson.jsonValueTest;
+package com.mytests.jackson.jsonCreatorTest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -9,12 +9,12 @@ public class RunMe {
    public static void main(String args[]){
       ObjectMapper mapper = new ObjectMapper();
       try{
-         MyData myData = new MyData("value1","value2","value3");
+         String json_input = "{\"p1\": \"value1\",\"p2\": \"value2\", \"p3\": \"value3\" }";
 
-         String json_rez = mapper
-            .writerWithDefaultPrettyPrinter() 
-            .writeValueAsString(myData);
-         System.out.println(json_rez);
+         MyData myData = mapper
+            .readerFor(MyData.class)
+            .readValue(json_input);
+         System.out.println(myData.getProp1()+", "+myData.getProp2()+", "+myData.getProp3());
       }
       catch (IOException e) {
          e.printStackTrace();

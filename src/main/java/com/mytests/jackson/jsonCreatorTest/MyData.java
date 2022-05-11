@@ -1,7 +1,7 @@
-package com.mytests.jackson.jsonValueTest;
+package com.mytests.jackson.jsonCreatorTest;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
@@ -17,15 +17,25 @@ public class MyData {
     String prop2;
     String prop3;
 
-    public MyData(String prop1, String prop2, String prop3) {
+    @JsonCreator
+    public MyData(@JsonProperty("p1") String prop1, @JsonProperty("p2") String prop2, @JsonProperty("p3") String prop3) {
         this.prop1 = prop1;
         this.prop2 = prop2;
         this.prop3 = prop3;
     }
 
+    public MyData() {
+    }
 
-    @JsonValue
-    public String getRez(){
-        return "{ properties: "+prop1+", "+prop2+", "+prop3+"}";
+    public String getProp1() {
+        return prop1;
+    }
+
+    public String getProp2() {
+        return prop2;
+    }
+
+    public String getProp3() {
+        return prop3;
     }
 }

@@ -1,4 +1,4 @@
-package com.mytests.jackson.jsonGetterTest;
+package com.mytests.jackson.jsonValueTest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

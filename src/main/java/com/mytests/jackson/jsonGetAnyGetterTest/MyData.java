@@ -1,20 +1,20 @@
-package com.mytests.jackson.test1;
+package com.mytests.jackson.jsonGetAnyGetterTest;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Student {
-   private Map<String, String> properties;
-   public Student(){
-      properties = new HashMap<>();
+public class MyData {
+   private Map<String, String> data;
+   public MyData(){
+      data = new HashMap<>();
    }
    @JsonAnyGetter
-   public Map<String, String> getProperties(){
-      return properties;
+   public Map<String, String> getData(){
+      return data;
    }
    public void add(String property, String value){
-      properties.put(property, value);
+      data.put(property, value);
    }
 }
